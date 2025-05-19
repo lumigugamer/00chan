@@ -1,0 +1,150 @@
+body {
+  background: #b0c4de;
+  color: #000;
+  font-family: "Arial", sans-serif;
+  font-size: 12px;
+  margin: 0;
+  padding: 10px;
+}
+
+a { color: #000088; text-decoration: underline; }
+a:hover { color: #ff0000; }
+
+#header {
+  text-align: center;
+  margin-bottom: 10px;
+  background: linear-gradient(to bottom, #d6e4f0, #b0c4de);
+  padding: 10px;
+  height: 150px;
+}
+
+#header h1 {
+  font-size: 24px;
+  color: #800000;
+  margin: 0;
+  font-weight: bold;
+}
+
+#nav {
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 11px;
+}
+
+#nav a {
+  margin: 0 5px;
+}
+
+.settings-section {
+  background: #f0f8ff;
+  border: 1px solid #000088;
+  padding: 10px;
+  margin: 0 auto 20px auto;
+  max-width: 600px;
+  text-align: left;
+}
+
+.settings-section h2 {
+  font-size: 16px;
+  color: #000088;
+  margin: 0 0 10px 0;
+}
+
+#language-select {
+  font-family: "Arial", sans-serif;
+  font-size: 12px;
+  padding: 3px;
+  margin: 3px 0;
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #999;
+}
+
+#apply-language {
+  background-color: #000088;
+  color: white;
+  cursor: pointer;
+  border: 1px solid #000088;
+  padding: 5px;
+  font-size: 12px;
+}
+
+#apply-language:hover {
+  background-color: #2222aa;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid #000088;
+  margin: 10px 0;
+}
+
+#footer {
+  text-align: center;
+  font-size: 11px;
+  margin-top: 20px;
+}
+
+#footer a {
+  margin: 0 5px;
+}
+
+/* Mobile mode */
+body.mobile-mode {
+  padding: 5px;
+  font-size: 14px;
+}
+
+body.mobile-mode #header {
+  height: auto;
+  padding: 5px;
+}
+
+body.mobile-mode #nav a {
+  display: block;
+  margin: 5px 0;
+}
+
+body.mobile-mode .settings-section {
+  max-width: 100%;
+  padding: 5px;
+}
+
+body.mobile-mode #language-select {
+  font-size: 16px;
+  padding: 5px;
+}
+
+body.mobile-mode #apply-language {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+}
+
+body.mobile-mode #footer a {
+  display: block;
+  margin: 5px 0;
+}
+
+/* Media query para telas pequenas */
+@media screen and (max-width: 600px) {
+  body {
+    padding: 5px;
+    font-size: 14px;
+  }
+  #header {
+    height: auto;
+  }
+  #nav a, #footer a {
+    display: block;
+    margin: 5px 0;
+  }
+  .settings-section {
+    max-width: 100%;
+    padding: 5px;
+  }
+  #language-select {
+    font-size: 16px;
+    padding: 5px;
+  }
+}

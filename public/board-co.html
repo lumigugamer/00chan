@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>00chan - /co/ - Comics & Cartoons</title>
+  <link rel="stylesheet" href="imageboard.css" />
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="imageboard.js"></script>
+</head>
+<body>
+  <div id="header">
+    <img src="WhatsApp Image 2025-05-16 at 10.21.23 PM.jpeg" alt="Banner">
+    <h1>/co/ - Comics & Cartoons</h1>
+    <div id="nav">
+      <a href="imageboard.html" data-i18n="home">[Início]</a>
+      <a href="settings.html" data-i18n="settings">[Config]</a>
+      <a href="#" id="search-btn" data-i18n="search">[Pesquisa]</a>
+      <a id="mobile-btn" href="#">[Mobile]</a>
+    </div>
+  </div>
+
+  <div id="boards-section">
+    <table>
+      <tr>
+        <th>Boards</th>
+        <th>Popular Threads</th>
+      </tr>
+      <tr>
+        <td>
+          <a href="imageboard.html">Weapons</a><br>
+          <a href="board-a.html">Anime & Manga</a><br>
+          <a href="board-g.html">Technology</a>
+        </td>
+        <td id="popular-threads">
+          <!-- Preenchido dinamicamente pelo JavaScript -->
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <hr>
+
+  <div class="search-section" style="display: none;">
+    <input type="text" id="search-input" data-i18n-placeholder="search-placeholder" placeholder="Pesquisar por nome ou comentário..." />
+    <div id="search-results"></div>
+  </div>
+
+  <hr>
+
+  <div id="startThreadBtn">
+    <a href="#" id="startThreadLink" data-i18n="start-thread">[Start a New Thread]</a>
+  </div>
+
+  <div class="formulario" id="newThreadForm">
+    <label data-i18n="name">Name</label>
+    <input type="text" id="nome" placeholder="Anonymous" />
+    <label data-i18n="options">Options</label>
+    <input type="text" id="imagem" data-i18n-placeholder="image-placeholder" placeholder="URL da imagem (opcional)" />
+    <label data-i18n="subject">Subject</label>
+    <input type="text" id="subject" data-i18n-placeholder="subject-placeholder" placeholder="Subject" />
+    <label data-i18n="comment">Comment</label>
+    <textarea id="comentario" data-i18n-placeholder="comment-placeholder" placeholder="Mensagem..." rows="3"></textarea>
+    <label data-i18n="verification">Verification</label>
+    <div class="captcha-section">
+      <span data-i18n="get-captcha">Get CAPTCHA</span>
+      <input type="text" data-i18n-placeholder="captcha-placeholder" placeholder="DIGITE O CAPTCHA AQUI" style="width: 200px;" />
+      <img src="https://via.placeholder.com/20.png?text=?" alt="Help">
+    </div>
+    <div class="form-footer">
+      <span data-i18n="captcha-bypass">4chan Pass users can bypass this verification.</span> <a href="#">[Learn More]</a> <a href="#">[Login]</a><br>
+      <input type="radio" id="fileOption" name="fileOption"> <label for="fileOption" data-i18n="choose-file">Escolher arquivo</label>
+      <span data-i18n="no-file">Nenhum arquivo escolhido</span><br>
+      <strong data-i18n="rules-faq">Please read the <a href="#">Rules</a> and <a href="#">FAQ</a> before posting.</strong>
+    </div>
+    <button id="criarTopico" data-i18n="post">Post</button>
+  </div>
+
+  <hr>
+
+  <div id="topicos">
+    <div class="post">
+      <div class="post-header">
+        <input type="checkbox">
+        <strong>Anonymous</strong> #Mod - 17/05/25(Sat)11:47 No.30000001 <a href="#">[Reply]</a>
+      </div>
+      <img src="https://via.placeholder.com/150.png?text=Comic+Image" alt="Post Image">
+      <div class="post-content">
+        Welcome to /co/ - Comics & Cartoons! This board is for discussions about comic books, cartoons, and animated series. Share your favorite heroes, discuss new releases, or talk about classic shows!
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div id="footer">
+    <a href="imageboard.html" data-i18n="home">[Início]</a>
+    <a href="settings.html" data-i18n="settings">[Config]</a>
+    <a href="#" id="search-btn-footer" data-i18n="search">[Pesquisa]</a>
+    <a id="mobile-btn-footer" href="#">[Mobile]</a>
+  </div>
+</body>
+</html>

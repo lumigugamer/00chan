@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>00chan - Settings</title>
+  <link rel="stylesheet" href="settings.css" />
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="settings.js"></script>
+</head>
+<body>
+  <div id="header">
+    <h1>00chan - Settings</h1>
+    <div id="nav">
+      <a href="imageboard.html" data-i18n="home">[Início]</a>
+      <a href="#" data-i18n="search">[Pesquisa]</a>
+      <a id="mobile-btn" href="#">[Mobile]</a>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="settings-section">
+    <h2 data-i18n="language">Language</h2>
+    <select id="language-select">
+      <option value="pt-BR">Português</option>
+      <option value="en">English</option>
+    </select>
+    <button id="apply-language" data-i18n="apply">Apply</button>
+  </div>
+
+  <hr>
+
+  <div id="footer">
+    <a href="imageboard.html" data-i18n="home">[Início]</a>
+    <a href="#" data-i18n="search">[Pesquisa]</a>
+    <a id="mobile-btn-footer" href="#">[Mobile]</a>
+  </div>
+</body>
+</html>

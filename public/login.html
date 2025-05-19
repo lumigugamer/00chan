@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Login - Chan Azul</title>
+  <style>
+    body {
+      background-color: #d6e4f0;
+      color: #000;
+      font-family: "Verdana", sans-serif;
+      font-size: 14px;
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .container {
+      width: 500px;
+      background-color: #f0f8ff;
+      border: 1px solid #000088;
+      padding: 20px;
+    }
+
+    h2 {
+      font-size: 16px;
+      color: #000088;
+      border-bottom: 1px solid #000088;
+      margin-bottom: 15px;
+      padding-bottom: 5px;
+    }
+
+    input, button {
+      width: 100%;
+      padding: 8px;
+      margin: 5px 0 15px;
+      font-size: 14px;
+      border: 1px solid #888;
+      background: #ffffff;
+    }
+
+    button {
+      background-color: #000088;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #2222aa;
+    }
+
+    #msg {
+      color: red;
+      min-height: 20px;
+      margin-top: -10px;
+    }
+
+    .formulario {
+      display: none;
+    }
+
+    .formulario.active {
+      display: block;
+    }
+
+    .menu {
+      text-align: right;
+      font-size: 12px;
+      margin-top: -10px;
+    }
+
+    .menu a {
+      color: #000088;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    .menu a:hover {
+      color: #2222aa;
+    }
+  </style>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(function () {
+      let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+      let usuarioLogado = JSON.parse(localStorage.getItem("usuarioLogado"));
+
+      if (usuarioLogado) {
+        window.location.href = "imageboard.html";
+      }
+
+      function mostrarMsg(texto) {
+        $("#msg").text(texto);
+      }
+
+      $(".menu a").click(function () {
+        $(".formulario").removeClass("active");
+        const destino = $(this).data("alvo");
+        $("#" + destino).addClass("active");
+        mostrarMsg("");
+      });
+
+      $("#btnLogin").click(function () {
+        const usuario = $("#loginUsuario").val().trim();
+        const senha = $("#loginSenha").val();
+
+        if (!usuario || !senha) {
+          mostrarMsg("Preencha usuário e senha.");
+          return;
+        }
+
+        const user = usuarios.find(u => u.usuario === usuario && u.senha === senha);
+        if (user) {
+          localStorage.setItem("usuarioLogado", JSON.stringify(user));
+          window.location.href = "imageboard.html";
+        } else {
+          mostrarMsg("Usuário ou senha incorretos.");
+        }
+      });
+
+      $("#btnCadastrar").click(function () {
+        const usuario = $("#cadUsuario").val().trim();
+        const senha = $("#cadSenha").val();
+
+        if (!usuario || !senha) {
+          mostrarMsg("Preencha usuário e senha para cadastro.");
+          return;
+        }
+
+        if (usuarios.find(u => u.usuario === usuario)) {
+          mostrarMsg("Usuário já existe.");
+          return;
+        }
+
+        const novoUsuario = { usuario, senha };
+        usuarios.push(novoUsuario);
+        localStorage.setItem("usuarios", JSON.stringify(usuarios));
+        mostrarMsg("Usuário cadastrado! Agora faça login.");
+        $("#cadUsuario").val("");
+        $("#cadSenha").val("");
+        $("#loginUsuario").val(usuario);
+        $("#loginSenha").val("");
+        $(".menu a[data-alvo='loginArea']").click();
+      });
+
+      // Começar com tela de login ativa
+      $(".formulario#loginArea").addClass("active");
+    });
+  </script>
+</head>
+<body>
+  <div class="container">
+    <div class="menu">
+      <a data-alvo="loginArea">Login</a> | <a data-alvo="cadastroArea">Cadastro</a>
+    </div>
+
+    <div class="formulario" id="loginArea">
+      <h2>Login</h2>
+      <input type="text" id="loginUsuario" placeholder="Usuário" />
+      <input type="password" id="loginSenha" placeholder="Senha" />
+      <button id="btnLogin">Entrar</button>
+    </div>
+
+    <div class="formulario" id="cadastroArea">
+      <h2>Cadastro</h2>
+      <input type="text" id="cadUsuario" placeholder="Usuário" />
+      <input type="password" id="cadSenha" placeholder="Senha" />
+      <button id="btnCadastrar">Cadastrar</button>
+    </div>
+
+    <p id="msg"></p>
+  </div>
+</body>
+</html>
